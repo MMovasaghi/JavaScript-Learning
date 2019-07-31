@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>        
+        #get-data{
+            background-color: yellow;
+            color: black;
+            padding: 20px 40px;
+            align-content: center;
+        }
+        .avatar{
+            float: left;
+            margin-right: 15px;
+            width: 100px;
+            height: 100px;
+        }
+        .avatar img{
+            max-width: 100%;  
+        }
+        .user-card{
+            border: 2px solid #000;
+            padding: 0px;
+            margin: 20px;
+            width: 30%;
+            height: 400px;
+            float: left;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-transition: all ease 1s;
+            border-radius: 5px;
+        }
+        .user-card:hover{
+            background: cyan;
+        }
+        .user-card .content{
+            float: left;
+            width: calc(100% - 120px);
+        }
+
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+            min-height: 0;
+            text-align: center;
+        }
+
+        #loading {
+            color: red;
+            padding: 10px 0;
+            display: none;
+        }
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid green;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- SSR -->
+    <header>
+        Header
+    </header>
+
+    <main>
+        <button id="get-data">Get Data</button>
+        <div id="loading">Loading ...</div>
+        <div id="content" class="clearfix">
+            
+        </div>
+    </main>
+
+    <footer>
+        footer
+    </footer>
+
+
+    <script id="entry-template" type="text/x-handlebars-template">
+        {{#.}}
+        <div class="user-card clearfix">
+            <div class="avatar">
+                <img src="{{avatar}}" alt="">
+            </div>
+            <div class="content">
+                <h3>{{title}}</h3>
+                <p>
+                    {{body}}
+                </p>
+                <button>Show Info</button>
+            </div>
+        </div>
+        {{/.}}
+    </script>
+    <script src="jquery.js"></script>
+    <script src="handlebars.js"></script>
+    <script src="sam.js"></script>
+</body>
+</html>
